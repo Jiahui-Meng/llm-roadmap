@@ -58,6 +58,8 @@ By the end of this roadmap, you should have:
 - Prefer fewer, deeper materials over endless browsing.
 - Always connect theory to practical LLM engineering.
 - Keep commits small and meaningful.
+- Use `scripts/start_day.sh` to create a fresh daily note from template.
+- Use `docs/progress-tracker.md` as the execution dashboard.
 
 ## Recommended Daily Time Budget
 
