@@ -28,6 +28,7 @@ By the end of this roadmap, you should have:
 - `docs/weekly-review-template.md` — weekly review template
 - `docs/how-to-use-this-repo.md` — execution guide
 - `docs/resources.md` — papers, blogs, docs, and tools
+- `docs/links.md` — direct clickable reading links by topic
 - `docs/projects.md` — flagship project plans and dataset ideas
 - `notes/` — daily and weekly notes
 - `code/` — foundational implementations and experiments

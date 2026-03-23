@@ -13,14 +13,17 @@ Daily structure:
 ## Week 1 — Attention Foundations
 
 ### Day 1
-- Read: *Attention Is All You Need* (Abstract, Intro, Figure 1)
-- Read: Jay Alammar, *The Illustrated Transformer*
+- Read: *Attention Is All You Need* (Abstract, Intro, Figure 1)  
+  https://arxiv.org/abs/1706.03762
+- Read: Jay Alammar, *The Illustrated Transformer*  
+  https://jalammar.github.io/illustrated-transformer/
 - Write note: why Transformer replaced RNN-style sequence modeling
 - Create repo note template and daily note format
 - Output: `notes/day01_why_transformer.md`
 
 ### Day 2
-- Read: HF tokenizer/embedding basics
+- Read: HF tokenizer/embedding basics  
+  https://huggingface.co/learn/nlp-course/
 - Implement: PyTorch embedding demo
 - Write note: token → id → embedding, one-hot vs learned embeddings
 - Output: `code/transformer_basics/embedding_demo.py`
@@ -33,7 +36,10 @@ Daily structure:
 - Output: `notes/day03_attention_intuition.md`
 
 ### Day 4
-- Read: AIAYN Section 3.2.1
+- Read: AIAYN Section 3.2.1  
+  https://arxiv.org/abs/1706.03762
+- Read: Annotated Transformer  
+  https://nlp.seas.harvard.edu/2018/04/03/attention.html
 - Implement: scaled dot-product attention from scratch
 - Test on tiny tensors and print scores/weights
 - Write note: why divide by sqrt(d_k)
@@ -63,7 +69,9 @@ Daily structure:
 ## Week 2 — Transformer Block and Model Families
 
 ### Day 8
-- Read: positional encoding section in AIAYN / Annotated Transformer
+- Read: positional encoding section in AIAYN / Annotated Transformer  
+  https://arxiv.org/abs/1706.03762  
+  https://nlp.seas.harvard.edu/2018/04/03/attention.html
 - Implement sinusoidal positional encoding
 - Visualize several positions
 - Output: `code/transformer_basics/positional_encoding.py`
@@ -93,7 +101,12 @@ Daily structure:
 - Output: `code/transformer_basics/masks.py`
 
 ### Day 13
-- Read: BERT intro, decoder-only GPT overview, T5 overview
+- Read: BERT intro  
+  https://arxiv.org/abs/1810.04805
+- Read: T5 overview  
+  https://arxiv.org/abs/1910.10683
+- Read: Hugging Face course / GPT-style decoder overview  
+  https://huggingface.co/learn/nlp-course/
 - Make comparison table: encoder-only vs decoder-only vs encoder-decoder
 - Output: `notes/day13_model_families.md`
 
@@ -108,7 +121,8 @@ Daily structure:
 ## Week 3 — Modern LLM Building Blocks
 
 ### Day 15
-- Read: HF tokenizer course section
+- Read: HF tokenizer course section  
+  https://huggingface.co/learn/nlp-course/
 - Compare tokenization across Chinese and English examples
 - Output: `experiments/tokenization/tokenizer_demo.ipynb`
 
@@ -124,7 +138,8 @@ Daily structure:
 - Output: `notes/day17_context_window.md`
 
 ### Day 18
-- Read: RoPE explainer
+- Read: RoPE explainer  
+  https://huggingface.co/blog/RDTvlokip/when-ai-finally-learns-where-it-is
 - Write note: relative position intuition and why modern LLMs prefer RoPE
 - Output: `notes/day18_rope.md`
 
@@ -134,7 +149,8 @@ Daily structure:
 - Output: `notes/day19_modern_llm_block.md`
 
 ### Day 20
-- Read: KV cache explainer + HF cache docs
+- Read: KV cache explainer + HF cache docs  
+  https://huggingface.co/docs/transformers/main/cache_explanation
 - Write note: why autoregressive decoding benefits from KV cache
 - Output: `notes/day20_kv_cache.md`
 
@@ -148,7 +164,10 @@ Daily structure:
 ## Week 4 — Bridge to LLM Engineering
 
 ### Day 22
-- Read: RAG paper (Intro + Method)
+- Read: RAG paper (Intro + Method)  
+  https://arxiv.org/abs/2005.11401
+- Read: LangChain RAG tutorial  
+  https://python.langchain.com/docs/tutorials/rag/
 - Write bridge note: Transformer limitations → RAG
 - Output: `bridges/transformer_to_rag.md`
 
@@ -169,17 +188,27 @@ Daily structure:
 - Output: `notes/day25_reranker.md`
 
 ### Day 26
-- Read: LoRA paper (Abstract, Intro, Method figure)
+- Read: LoRA paper (Abstract, Intro, Method figure)  
+  https://arxiv.org/abs/2106.09685
+- Read: PEFT docs  
+  https://huggingface.co/docs/peft/index
 - Write bridge note: Transformer linear layers → LoRA injection points
 - Output: `bridges/transformer_to_lora.md`
 
 ### Day 27
-- Read: vLLM overview + paged attention explainer
+- Read: vLLM overview + paged attention explainer  
+  https://docs.vllm.ai/  
+  https://github.com/vllm-project/vllm
 - Write bridge note: KV cache → serving → vLLM
 - Output: `bridges/transformer_to_vllm.md`
 
 ### Day 28
-- Read: ReAct intro, LangGraph intro, SGLang intro
+- Read: ReAct intro  
+  https://arxiv.org/abs/2210.03629
+- Read: LangGraph intro  
+  https://langchain-ai.github.io/langgraph/
+- Read: SGLang intro  
+  https://docs.sglang.ai/
 - Write bridge note: model vs system orchestration
 - Output: `bridges/transformer_to_agent.md`
 
@@ -259,8 +288,10 @@ Daily structure:
 ## Week 7 — vLLM and Serving
 
 ### Day 43
-- Read: vLLM official docs overview
-- Read: paged attention explainer
+- Read: vLLM official docs overview  
+  https://docs.vllm.ai/
+- Read: vLLM GitHub / examples  
+  https://github.com/vllm-project/vllm
 - Write note: serving problems vLLM solves
 - Output: `notes/day43_vllm_overview.md`
 
@@ -294,12 +325,15 @@ Daily structure:
 ## Week 8 — LoRA / QLoRA Mini Project
 
 ### Day 50
-- Read: LoRA paper and HF PEFT intro
+- Read: LoRA paper and HF PEFT intro  
+  https://arxiv.org/abs/2106.09685  
+  https://huggingface.co/docs/peft/index
 - Write note: LoRA vs full fine-tuning vs prompting
 - Output: `notes/day50_lora_intro.md`
 
 ### Day 51
-- Read: QLoRA explainer
+- Read: QLoRA explainer  
+  https://arxiv.org/abs/2305.14314
 - Write note: 4-bit / NF4 / memory savings at a practical level
 - Output: `notes/day51_qlora.md`
 
@@ -329,7 +363,8 @@ Daily structure:
 ## Week 9 — SGLang and Structured Generation
 
 ### Day 57
-- Read: SGLang intro docs
+- Read: SGLang intro docs  
+  https://docs.sglang.ai/
 - Write note: where SGLang fits relative to vLLM and workflow frameworks
 - Output: `notes/day57_sglang_intro.md`
 
@@ -362,7 +397,9 @@ Daily structure:
 ## Week 10 — Agent Workflows
 
 ### Day 64
-- Read: ReAct paper intro + LangGraph quickstart
+- Read: ReAct paper intro + LangGraph quickstart  
+  https://arxiv.org/abs/2210.03629  
+  https://langchain-ai.github.io/langgraph/
 - Write note: workflow vs autonomous agent
 - Output: `notes/day64_agent_workflows.md`
 
