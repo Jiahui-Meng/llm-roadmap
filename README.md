@@ -23,6 +23,10 @@ By the end of this roadmap, you should have:
 
 - `docs/roadmap-overview.md` — overall 12-week plan
 - `docs/daily-plan.md` — full day-by-day execution plan
+- `docs/progress-tracker.md` — checkbox tracker for all days
+- `docs/daily-template.md` — copyable daily note template
+- `docs/weekly-review-template.md` — weekly review template
+- `docs/how-to-use-this-repo.md` — execution guide
 - `docs/resources.md` — papers, blogs, docs, and tools
 - `docs/projects.md` — flagship project plans and dataset ideas
 - `notes/` — daily and weekly notes

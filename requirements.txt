@@ -1,0 +1,12 @@
+torch
+transformers
+datasets
+sentence-transformers
+faiss-cpu
+jupyter
+matplotlib
+numpy
+pandas
+scikit-learn
+fastapi
+uvicorn
