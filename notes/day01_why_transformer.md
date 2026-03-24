@@ -1,16 +1,140 @@
 # Day 1 — Why Transformer
 
-## Questions
-- Why were RNN/LSTM-based approaches limiting at scale?
-- Why does parallelism matter?
-- What changed when attention became the primary mechanism?
+## 1. 背景：Transformer 出现之前的主流序列模型
+在 Transformer 出现之前，序列建模主要依赖 **RNN、LSTM、GRU** 等循环神经网络结构。  
+这类模型按时间步依次处理输入序列，通过隐藏状态在不同时间步之间传递信息，因此天然适合处理序列数据。
 
-## Key Points
-- RNNs process tokens sequentially, which limits parallelism.
-- Long-range dependencies are harder to preserve across many recurrent steps.
-- Attention lets each token interact with other tokens directly.
-- Transformer made large-scale sequence modeling much more hardware-friendly.
+除了 RNN 系列，也有一些基于 CNN 的序列建模方法，但在自然语言处理中，RNN/LSTM 一度是最主流的方案。
 
-## Engineering Relevance
-- Parallelism and scalable training made large language models practical.
-- Attention-centric architectures also shape inference cost and context handling later.
+---
+
+## 2. 传统序列模型的主要问题
+
+### 2.1 串行计算，难以并行
+RNN/LSTM 的每一步计算都依赖上一步隐藏状态，因此必须按顺序逐步执行。  
+这种串行结构导致模型难以充分利用 GPU/TPU 的并行能力，在大规模训练场景下效率较低。
+
+### 2.2 长距离依赖难以建模
+对于相距很远的 token，RNN 需要通过许多时间步逐步传递信息。  
+虽然理论上它可以处理长序列，但在实践中，远距离信息往往会在多步传递过程中衰减或失真，因此长距离依赖很难学好。
+
+### 2.3 梯度传播困难
+由于序列较长，梯度需要跨越很多时间步传播，容易出现梯度消失或梯度爆炸问题。  
+LSTM/GRU 在一定程度上缓解了这个问题，但并没有从根本上解决长距离依赖和并行训练的瓶颈。
+
+---
+
+## 3. Transformer 想解决什么问题
+Transformer 的目标并不只是“提升一点效果”，而是从架构层面解决传统序列模型的两个关键瓶颈：
+
+1. **提高并行性**，使模型更适合大规模训练  
+2. **更好地建模长距离依赖**，避免信息必须逐步跨时间步传递
+
+换句话说，Transformer 想用一种新的序列建模方式，替代 RNN 的递归状态传递机制。
+
+---
+
+## 4. Attention 的核心思想
+Attention 的核心思想是：
+
+> 对于当前 token，不同位置上的 token 重要性不同，模型应该根据相关性为它们分配不同权重，再对这些信息进行加权聚合。
+
+也就是说，模型不再依赖“按顺序一步一步传递状态”，而是可以直接判断：
+- 哪些 token 更相关
+- 应该关注哪些信息
+- 如何聚合这些信息形成当前表示
+
+这使得序列中任意位置的 token 都可以直接发生交互。
+
+---
+
+## 5. 为什么 Attention 更适合长距离依赖
+在 RNN 中，两个相距很远的 token 之间的信息传递需要跨越很多时间步，因此路径较长，信息容易衰减。  
+
+而在 Transformer 中，attention 允许任意两个 token 直接建立联系，因此：
+- 信息路径更短
+- 远距离关系更容易被建模
+- 模型不必依赖长链式状态传递
+
+因此，attention 在处理长距离依赖时比 recurrence 更有优势。
+
+---
+
+## 6. Transformer 和 RNN 的根本区别
+Transformer 和 RNN 的根本区别，不只是“效果更好”，而是**建模思路完全不同**：
+
+### RNN
+- 按时间步顺序处理输入
+- 通过隐藏状态递推建模序列
+- 本质是“顺序传递状态”
+
+### Transformer
+- 不依赖递归结构
+- 通过 attention 直接建模 token 与 token 之间的关系
+- 本质是“直接建模全局交互关系”
+
+因此，Transformer 不只是 RNN 的小改进，而是一次建模范式的变化。
+
+---
+
+## 7. 为什么 Transformer 更适合大规模训练
+Transformer 的一个关键优势是**更适合并行计算**。  
+由于它不依赖前一个时间步的隐藏状态，训练时可以同时处理一个序列中的多个 token，这使它更容易适配 GPU/TPU 等并行硬件。
+
+这带来了几个重要结果：
+- 更高的训练吞吐
+- 更好的扩展性
+- 更适合大数据、大参数量的训练场景
+
+这也是它后来能支撑大规模预训练模型的重要原因。
+
+---
+
+## 8. 为什么 Transformer 成为后续 LLM 的基础
+后续的大语言模型（如 GPT、BERT、T5 等）都建立在 Transformer 架构之上。  
+原因在于：
+
+1. Transformer 解决了序列建模中的并行训练问题  
+2. Transformer 更适合建模长距离上下文关系  
+3. Transformer 更容易扩展到大模型、大数据和大算力场景  
+4. 大规模预训练需要一个既能扩展、又适合并行的架构，而 Transformer 正好满足这一点
+
+因此，Transformer 不只是一个 NLP 模型结构，而是后来整个 LLM 时代的基础架构。
+
+---
+
+## 9. Transformer 的优势与代价
+
+### 优势
+- 更适合并行训练
+- 更容易建模长距离依赖
+- 更适合大规模预训练
+- 具有良好的扩展性
+
+### 代价
+- self-attention 在长序列下计算和显存开销较大
+- 上下文越长，计算成本越高
+- 对算力和硬件资源要求更高
+
+也就是说，Transformer 并不是“没有缺点”，而是在大规模训练和效果收益上，它的优势足以覆盖这些代价。
+
+---
+
+## 10. 为什么说 Transformer 是一次“范式切换”
+Transformer 被称为一次“范式切换”，是因为它并不是在 RNN 上做局部优化，而是直接替换了序列建模的核心机制：
+
+- 从 **recurrence（递归状态传递）**
+- 转向 **attention（直接关系建模）**
+
+这意味着改变的不只是模型结构本身，还包括：
+- 信息如何传播
+- 序列如何建模
+- 训练如何并行
+- 模型如何扩展到更大规模
+
+因此，Transformer 的意义不只是“更强”，而是重新定义了序列建模的主流路径。
+
+---
+
+## 11. 一句话总结
+Transformer 通过 attention 替代 recurrence，解决了传统序列模型在并行训练和长距离依赖建模上的关键瓶颈，并成为后续大语言模型发展的基础架构。
