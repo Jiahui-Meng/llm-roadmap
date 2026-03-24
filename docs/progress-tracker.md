@@ -12,7 +12,7 @@ Use this file as your execution dashboard.
 ## Phase 1 — Foundations
 
 ### Week 1
-- [ ] Day 1 — Why Transformer
+- [x] Day 1 — Why Transformer
 - [ ] Day 2 — Embeddings
 - [ ] Day 3 — Attention intuition
 - [ ] Day 4 — Scaled dot-product attention
