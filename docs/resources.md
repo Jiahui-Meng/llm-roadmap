@@ -27,6 +27,10 @@
    https://arxiv.org/abs/2202.09368
 11. vLLM project page / docs  
    https://github.com/vllm-project/vllm
+12. AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration  
+   https://arxiv.org/abs/2306.00978
+13. GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers  
+   https://arxiv.org/abs/2210.17323
 
 ## Blogs / Tutorials
 
@@ -71,6 +75,14 @@
   https://docs.sglang.ai/
 - Hugging Face Text Generation Inference  
   https://github.com/huggingface/text-generation-inference
+- Hugging Face quantization docs  
+  https://huggingface.co/docs/transformers/main/en/quantization/bitsandbytes
+- AWQ repo  
+  https://github.com/mit-han-lab/llm-awq
+- GPTQ overview / ecosystem entry point  
+  https://github.com/AutoGPTQ/AutoGPTQ
+- GGUF / llama.cpp quantization ecosystem  
+  https://github.com/ggerganov/llama.cpp
 
 ### Fine-tuning
 - Hugging Face PEFT docs  

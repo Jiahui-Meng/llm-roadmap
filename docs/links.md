@@ -53,6 +53,16 @@
   https://github.com/ggerganov/llama.cpp
 - SGLang docs  
   https://docs.sglang.ai/
+- Hugging Face quantization docs  
+  https://huggingface.co/docs/transformers/main/en/quantization/bitsandbytes
+- AWQ paper  
+  https://arxiv.org/abs/2306.00978
+- GPTQ paper  
+  https://arxiv.org/abs/2210.17323
+- AWQ repo  
+  https://github.com/mit-han-lab/llm-awq
+- AutoGPTQ repo  
+  https://github.com/AutoGPTQ/AutoGPTQ
 
 ## Fine-tuning
 - LoRA paper  

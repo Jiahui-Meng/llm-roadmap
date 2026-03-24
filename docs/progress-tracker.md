@@ -79,51 +79,55 @@ Use this file as your execution dashboard.
 - [ ] Day 49 — Single-user benchmark
 - [ ] Day 50 — Concurrency benchmark
 - [ ] Day 51 — Quantization basics
-- [ ] Day 52 — Connect RAG to vLLM
+
+### Week 7.5 — Quantization Mini Module
+- [ ] Day 52 — AWQ
+- [ ] Day 53 — GPTQ / GGUF
+- [ ] Day 54 — Quantized deployment trade-offs
 
 ### Week 8
-- [ ] Day 53 — LoRA intro
-- [ ] Day 54 — QLoRA
-- [ ] Day 55 — Pick task and dataset
-- [ ] Day 56 — Collect / clean data
-- [ ] Day 57 — Format instructions
-- [ ] Day 58 — Run fine-tuning
-- [ ] Day 59 — Evaluate before/after
+- [ ] Day 55 — LoRA intro
+- [ ] Day 56 — QLoRA
+- [ ] Day 57 — Pick task and dataset
+- [ ] Day 58 — Collect / clean data
+- [ ] Day 59 — Format instructions
+- [ ] Day 60 — Run fine-tuning
+- [ ] Day 61 — Evaluate before/after
 
 ## Phase 3 — Productization
 
 ### Week 9
-- [ ] Day 60 — SGLang intro
-- [ ] Day 61 — Structured output demo
-- [ ] Day 62 — Schema-constrained task
-- [ ] Day 63 — Stability comparison
-- [ ] Day 64 — Wrap structured generation module
-- [ ] Day 65 — README and examples
-- [ ] Day 66 — Week 9 review
+- [ ] Day 62 — SGLang intro
+- [ ] Day 63 — Structured output demo
+- [ ] Day 64 — Schema-constrained task
+- [ ] Day 65 — Stability comparison
+- [ ] Day 66 — Wrap structured generation module
+- [ ] Day 67 — README and examples
+- [ ] Day 68 — Week 9 review
 
 ### Week 10
-- [ ] Day 67 — Agent workflows
-- [ ] Day 68 — Research agent design
-- [ ] Day 69 — Implement tools
-- [ ] Day 70 — Stateful workflow
-- [ ] Day 71 — Trace logging
-- [ ] Day 72 — Retry / fallback
-- [ ] Day 73 — Package research agent v1
+- [ ] Day 69 — Agent workflows
+- [ ] Day 70 — Research agent design
+- [ ] Day 71 — Implement tools
+- [ ] Day 72 — Stateful workflow
+- [ ] Day 73 — Trace logging
+- [ ] Day 74 — Retry / fallback
+- [ ] Day 75 — Package research agent v1
 
 ### Week 11
-- [ ] Day 74 — Health Agent 2.0 scope
-- [ ] Day 75 — Hybrid retrieval design
-- [ ] Day 76 — Evidence panel
-- [ ] Day 77 — Evaluation set
-- [ ] Day 78 — Observability plan
-- [ ] Day 79 — Prototype upgrade path
-- [ ] Day 80 — README and benchmarks
+- [ ] Day 76 — Health Agent 2.0 scope
+- [ ] Day 77 — Hybrid retrieval design
+- [ ] Day 78 — Evidence panel
+- [ ] Day 79 — Evaluation set
+- [ ] Day 80 — Observability plan
+- [ ] Day 81 — Prototype upgrade path
+- [ ] Day 82 — README and benchmarks
 
 ### Week 12
-- [ ] Day 81 — Clean repo
-- [ ] Day 82 — Add diagrams / screenshots
-- [ ] Day 83 — Resume bullets
-- [ ] Day 84 — Interview Q&A notes
-- [ ] Day 85 — Portfolio overview
-- [ ] Day 86 — Gap review
-- [ ] Day 87 — Final polish
+- [ ] Day 83 — Clean repo
+- [ ] Day 84 — Add diagrams / screenshots
+- [ ] Day 85 — Resume bullets
+- [ ] Day 86 — Interview Q&A notes
+- [ ] Day 87 — Portfolio overview
+- [ ] Day 88 — Gap review
+- [ ] Day 89 — Final polish

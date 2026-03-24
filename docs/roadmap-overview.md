@@ -67,8 +67,14 @@ Focus on the systems that actually matter for applied LLM roles.
 - vLLM overview
 - Serving open-source models
 - Benchmarking latency / throughput
-- Quantization concepts
 - Self-hosted RAG generation backend
+
+### Week 7.5 — Quantization Mini Module
+- Quantization basics: FP16 / BF16 / INT8 / INT4
+- Weight-only vs activation quantization
+- AWQ / GPTQ / GGUF / bitsandbytes overview
+- Quality / latency / memory trade-offs
+- Deployment implications for local and self-hosted models
 
 ### Week 8
 - LoRA fundamentals
