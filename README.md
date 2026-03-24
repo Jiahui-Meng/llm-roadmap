@@ -30,6 +30,7 @@ By the end of this roadmap, you should have:
 - `docs/resources.md` — papers, blogs, docs, and tools
 - `docs/links.md` — direct clickable reading links by topic
 - `docs/projects.md` — flagship project plans and dataset ideas
+- `docs/future-topics.md` — important follow-up topics not yet added to the main plan
 - `notes/` — daily and weekly notes
 - `code/` — foundational implementations and experiments
 - `experiments/` — retrieval, tokenization, serving, and tuning experiments
