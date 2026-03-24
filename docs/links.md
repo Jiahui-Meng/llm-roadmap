@@ -19,6 +19,14 @@
   https://huggingface.co/docs/transformers/main/cache_explanation
 - Lost in the Middle  
   https://arxiv.org/abs/2307.03172
+- Switch Transformers  
+  https://arxiv.org/abs/2101.03961
+- Expert Choice Routing  
+  https://arxiv.org/abs/2202.09368
+- Hugging Face MoE blog  
+  https://huggingface.co/blog/moe
+- Sebastian Raschka GQA / LLM architecture notes  
+  https://sebastianraschka.com/llms-from-scratch/
 
 ## RAG and Retrieval
 - RAG paper  

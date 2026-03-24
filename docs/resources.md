@@ -21,7 +21,11 @@
    https://arxiv.org/abs/2205.14135
 8. Lost in the Middle: How Language Models Use Long Contexts  
    https://arxiv.org/abs/2307.03172
-9. vLLM project page / docs  
+9. Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity  
+   https://arxiv.org/abs/2101.03961
+10. Mixture-of-Experts with Expert Choice Routing  
+   https://arxiv.org/abs/2202.09368
+11. vLLM project page / docs  
    https://github.com/vllm-project/vllm
 
 ## Blogs / Tutorials
@@ -35,6 +39,10 @@
   https://huggingface.co/learn/nlp-course/
 - Lilian Weng blog  
   https://lilianweng.github.io/
+- Sebastian Raschka — LLMs from Scratch / MoE-related notes  
+  https://sebastianraschka.com/llms-from-scratch/
+- Hugging Face MoE blog  
+  https://huggingface.co/blog/moe
 
 ### RAG
 - LangChain RAG tutorials  

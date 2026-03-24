@@ -38,87 +38,92 @@ Use this file as your execution dashboard.
 - [ ] Day 20 — KV cache
 - [ ] Day 21 — FlashAttention / GQA / MQA
 
+### Week 3.5 — MoE Mini Module
+- [ ] Day 22 — MoE intro
+- [ ] Day 23 — Routing and load balancing
+- [ ] Day 24 — MoE systems implications
+
 ### Week 4
-- [ ] Day 22 — Transformer to RAG
-- [ ] Day 23 — Chunking experiment
-- [ ] Day 24 — Embeddings and retrieval
-- [ ] Day 25 — Reranker
-- [ ] Day 26 — Transformer to LoRA
-- [ ] Day 27 — Transformer to vLLM
-- [ ] Day 28 — Transformer to Agent
+- [ ] Day 25 — Transformer to RAG
+- [ ] Day 26 — Chunking experiment
+- [ ] Day 27 — Embeddings and retrieval
+- [ ] Day 28 — Reranker
+- [ ] Day 29 — Transformer to LoRA
+- [ ] Day 30 — Transformer to vLLM
+- [ ] Day 31 — Transformer to Agent
 
 ## Phase 2 — Core LLM Engineering
 
 ### Week 5
-- [ ] Day 29 — RAG architecture
-- [ ] Day 30 — Ingestion pipeline
-- [ ] Day 31 — Indexing
-- [ ] Day 32 — Retrieval
-- [ ] Day 33 — Generation
-- [ ] Day 34 — RAG prototype v1
-- [ ] Day 35 — README and failure cases
+- [ ] Day 32 — RAG architecture
+- [ ] Day 33 — Ingestion pipeline
+- [ ] Day 34 — Indexing
+- [ ] Day 35 — Retrieval
+- [ ] Day 36 — Generation
+- [ ] Day 37 — RAG prototype v1
+- [ ] Day 38 — README and failure cases
 
 ### Week 6
-- [ ] Day 36 — Hybrid retrieval
-- [ ] Day 37 — Reranking integration
-- [ ] Day 38 — Query rewrite
-- [ ] Day 39 — Citation grounding
-- [ ] Day 40 — Build evaluation set
-- [ ] Day 41 — Run ablations
-- [ ] Day 42 — Package RAG v2
+- [ ] Day 39 — Hybrid retrieval
+- [ ] Day 40 — Reranking integration
+- [ ] Day 41 — Query rewrite
+- [ ] Day 42 — Citation grounding
+- [ ] Day 43 — Build evaluation set
+- [ ] Day 44 — Run ablations
+- [ ] Day 45 — Package RAG v2
 
 ### Week 7
-- [ ] Day 43 — vLLM overview
-- [ ] Day 44 — Serve first model
-- [ ] Day 45 — API and streaming
-- [ ] Day 46 — Single-user benchmark
-- [ ] Day 47 — Concurrency benchmark
-- [ ] Day 48 — Quantization basics
-- [ ] Day 49 — Connect RAG to vLLM
+- [ ] Day 46 — vLLM overview
+- [ ] Day 47 — Serve first model
+- [ ] Day 48 — API and streaming
+- [ ] Day 49 — Single-user benchmark
+- [ ] Day 50 — Concurrency benchmark
+- [ ] Day 51 — Quantization basics
+- [ ] Day 52 — Connect RAG to vLLM
 
 ### Week 8
-- [ ] Day 50 — LoRA intro
-- [ ] Day 51 — QLoRA
-- [ ] Day 52 — Pick task and dataset
-- [ ] Day 53 — Collect / clean data
-- [ ] Day 54 — Format instructions
-- [ ] Day 55 — Run fine-tuning
-- [ ] Day 56 — Evaluate before/after
+- [ ] Day 53 — LoRA intro
+- [ ] Day 54 — QLoRA
+- [ ] Day 55 — Pick task and dataset
+- [ ] Day 56 — Collect / clean data
+- [ ] Day 57 — Format instructions
+- [ ] Day 58 — Run fine-tuning
+- [ ] Day 59 — Evaluate before/after
 
 ## Phase 3 — Productization
 
 ### Week 9
-- [ ] Day 57 — SGLang intro
-- [ ] Day 58 — Structured output demo
-- [ ] Day 59 — Schema-constrained task
-- [ ] Day 60 — Stability comparison
-- [ ] Day 61 — Wrap structured generation module
-- [ ] Day 62 — README and examples
-- [ ] Day 63 — Week 9 review
+- [ ] Day 60 — SGLang intro
+- [ ] Day 61 — Structured output demo
+- [ ] Day 62 — Schema-constrained task
+- [ ] Day 63 — Stability comparison
+- [ ] Day 64 — Wrap structured generation module
+- [ ] Day 65 — README and examples
+- [ ] Day 66 — Week 9 review
 
 ### Week 10
-- [ ] Day 64 — Agent workflows
-- [ ] Day 65 — Research agent design
-- [ ] Day 66 — Implement tools
-- [ ] Day 67 — Stateful workflow
-- [ ] Day 68 — Trace logging
-- [ ] Day 69 — Retry / fallback
-- [ ] Day 70 — Package research agent v1
+- [ ] Day 67 — Agent workflows
+- [ ] Day 68 — Research agent design
+- [ ] Day 69 — Implement tools
+- [ ] Day 70 — Stateful workflow
+- [ ] Day 71 — Trace logging
+- [ ] Day 72 — Retry / fallback
+- [ ] Day 73 — Package research agent v1
 
 ### Week 11
-- [ ] Day 71 — Health Agent 2.0 scope
-- [ ] Day 72 — Hybrid retrieval design
-- [ ] Day 73 — Evidence panel
-- [ ] Day 74 — Evaluation set
-- [ ] Day 75 — Observability plan
-- [ ] Day 76 — Prototype upgrade path
-- [ ] Day 77 — README and benchmarks
+- [ ] Day 74 — Health Agent 2.0 scope
+- [ ] Day 75 — Hybrid retrieval design
+- [ ] Day 76 — Evidence panel
+- [ ] Day 77 — Evaluation set
+- [ ] Day 78 — Observability plan
+- [ ] Day 79 — Prototype upgrade path
+- [ ] Day 80 — README and benchmarks
 
 ### Week 12
-- [ ] Day 78 — Clean repo
-- [ ] Day 79 — Add diagrams / screenshots
-- [ ] Day 80 — Resume bullets
-- [ ] Day 81 — Interview Q&A notes
-- [ ] Day 82 — Portfolio overview
-- [ ] Day 83 — Gap review
-- [ ] Day 84 — Final polish
+- [ ] Day 81 — Clean repo
+- [ ] Day 82 — Add diagrams / screenshots
+- [ ] Day 83 — Resume bullets
+- [ ] Day 84 — Interview Q&A notes
+- [ ] Day 85 — Portfolio overview
+- [ ] Day 86 — Gap review
+- [ ] Day 87 — Final polish

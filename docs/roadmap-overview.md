@@ -30,6 +30,14 @@ Build a deep, practical understanding of Transformer and modern LLM fundamentals
 - KV cache
 - FlashAttention / MQA / GQA concepts
 
+### Week 3.5 — MoE Mini Module
+- What Mixture of Experts is
+- Dense vs sparse activation
+- Router / expert / top-k routing
+- Why MoE scales model capacity
+- Load balancing and expert utilization
+- Serving and systems implications of MoE
+
 ### Week 4
 - Transformer → RAG bridge
 - Transformer → LoRA bridge
