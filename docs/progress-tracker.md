@@ -15,7 +15,7 @@ Use this file as your execution dashboard.
 - [x] Day 1 — Why Transformer
 - [x] Day 2 — Embeddings
 - [x] Day 3 — Attention intuition
-- [ ] Day 4 — Scaled dot-product attention
+- [x] Day 4 — Scaled dot-product attention
 - [ ] Day 5 — Self-attention
 - [ ] Day 6 — Multi-head attention
 - [ ] Day 7 — Week 1 review
