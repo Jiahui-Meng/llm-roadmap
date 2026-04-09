@@ -1,15 +1,40 @@
 {
-  "description": "Health agent evaluation seed set",
+  "description": "Evaluation set for Health Agent 2.0 covering multiple query types",
   "examples": [
     {
-      "id": "h1",
-      "query": "Summarize the medication timeline.",
-      "category": "timeline"
+      "id": "ha-001",
+      "question": "What are the patient's current medications?",
+      "query_type": "entity_list",
+      "reference_answer": "Metformin 500mg, Lisinopril 10mg, Atorvastatin 20mg",
+      "retrieval_strategy": "graph"
     },
     {
-      "id": "h2",
-      "query": "What labs support the diagnosis?",
-      "category": "evidence"
+      "id": "ha-002",
+      "question": "Summarize the last hospital visit.",
+      "query_type": "summary",
+      "reference_answer": "Patient presented with chest pain, ECG was normal, troponin negative, discharged with follow-up in 2 weeks.",
+      "retrieval_strategy": "dense"
+    },
+    {
+      "id": "ha-003",
+      "question": "How has the patient's HbA1c changed over the past year?",
+      "query_type": "timeline",
+      "reference_answer": "HbA1c was 8.2% in January, 7.5% in June, and 7.1% in December, showing steady improvement.",
+      "retrieval_strategy": "timeline"
+    },
+    {
+      "id": "ha-004",
+      "question": "Are there any drug interactions in the current medication list?",
+      "query_type": "relationship",
+      "reference_answer": "No major interactions between Metformin, Lisinopril, and Atorvastatin at current doses.",
+      "retrieval_strategy": "graph"
+    },
+    {
+      "id": "ha-005",
+      "question": "What labs were ordered at the last visit?",
+      "query_type": "entity_list",
+      "reference_answer": "CBC, BMP, HbA1c, Lipid panel, TSH",
+      "retrieval_strategy": "dense"
     }
   ]
 }
