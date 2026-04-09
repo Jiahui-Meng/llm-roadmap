@@ -17,7 +17,7 @@ Use this file as your execution dashboard.
 - [x] Day 3 — Attention intuition
 - [x] Day 4 — Scaled dot-product attention
 - [x] Day 5 — Self-attention
-- [ ] Day 6 — Multi-head attention
+- [x] Day 6 — Multi-head attention
 - [ ] Day 7 — Week 1 review
 
 ### Week 2
