@@ -1,10 +1,1 @@
-query = 'how does rag work'
-rewrites = [
-    'retrieval augmented generation architecture',
-    'rag pipeline ingestion retrieval generation',
-    'how retrieval augments llm generation'
-]
-print('Original:', query)
-print('Rewrites:')
-for r in rewrites:
-    print('-', r)
+query = 'how do i make rag answers more reliable'\nrewrites = [\n    'methods to improve grounding in retrieval augmented generation',\n    'rag reliability citation grounding retrieval quality',\n    'how reranking and query rewrite improve rag'\n]\nprint('original:', query)\nprint('rewrites:')\nfor r in rewrites:\n    print('-', r)\n

@@ -1,5 +1,1 @@
-lexical_score = 0.8
-vector_score = 0.6
-alpha = 0.5
-hybrid = alpha * lexical_score + (1-alpha) * vector_score
-print({'lexical': lexical_score, 'vector': vector_score, 'hybrid': hybrid})
+query = 'how does rag improve grounded answers'\nlexical = [('doc1', 0.72), ('doc2', 0.55), ('doc3', 0.31)]\ndense = [('doc2', 0.81), ('doc1', 0.64), ('doc3', 0.48)]\nalpha = 0.5\nscore_map = {}\nfor doc, s in lexical:\n    score_map.setdefault(doc, 0.0)\n    score_map[doc] += alpha * s\nfor doc, s in dense:\n    score_map.setdefault(doc, 0.0)\n    score_map[doc] += (1-alpha) * s\nprint('query:', query)\nfor doc, score in sorted(score_map.items(), key=lambda x: x[1], reverse=True):\n    print(doc, round(score, 4))\n

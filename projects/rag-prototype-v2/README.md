@@ -1,3 +1,1 @@
-# RAG Prototype V2
-
-Second-pass RAG prototype with reranking, query rewrite, and citation support.
+# RAG Prototype v2\n\n## Goal\nUpgrade v1 with stronger retrieval quality and answer grounding.\n\n## Added components\n- hybrid retrieval\n- reranking\n- query rewrite\n- citation pipeline\n- evaluation and ablation\n\n## Design principle\nMove from \"retrieval works\" to \"retrieval quality is measurable and explainable\".\n

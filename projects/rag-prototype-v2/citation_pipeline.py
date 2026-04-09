@@ -1,14 +1,1 @@
-from dataclasses import dataclass
-
-@dataclass
-class Citation:
-    doc_id: str
-    quote: str
-    reason: str
-
-citations = [
-    Citation('doc1', 'Transformers use multi-head attention.', 'supports the model-mechanism explanation'),
-    Citation('doc2', 'RAG adds retrieval to generation workflows.', 'supports the system bridge'),
-]
-for c in citations:
-    print(f'[{c.doc_id}] {c.quote} -> {c.reason}')
+from dataclasses import dataclass\n\n@dataclass\nclass Citation:\n    doc_id: str\n    section: str\n    quote: str\n\ndef build_answer(question, citations):\n    body = 'RAG improves answer grounding by injecting retrieved context before generation.'\n    refs = '\\n'.join([f'[{i+1}] {c.doc_id}:{c.section} -> {c.quote}' for i, c in enumerate(citations)])\n    return f'Q: {question}\\n\\nA: {body}\\n\\nCitations:\\n{refs}'\n\ncitations = [\n    Citation('doc1', '2.3', 'Reranking improves precision in top-k contexts.'),\n    Citation('doc2', '4.1', 'Grounded generation reduces unsupported claims.')\n]\nprint(build_answer('How does citation grounding help RAG?', citations))\n

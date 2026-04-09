@@ -1,14 +1,1 @@
-# Ablation Results
-
-## Purpose
-RAG ablation report template comparing chunking, hybrid retrieval, reranking, and query rewrite.
-
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
-
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+# RAG Ablation Results\n\n## Goal\nCompare how each retrieval improvement changes final answer quality.\n\n## Variants\n- baseline dense retrieval only\n- hybrid retrieval\n- hybrid + rerank\n- hybrid + rerank + query rewrite\n- hybrid + rerank + query rewrite + citations\n\n## What to observe\n- answer correctness\n- citation quality\n- retrieval hit rate\n- latency cost\n\n## Initial takeaway\nThe purpose of ablation is not just to find the highest score, but to understand which component contributes most per unit cost.\n

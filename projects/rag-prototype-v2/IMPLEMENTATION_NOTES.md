@@ -1,0 +1,1 @@
+# Implementation Notes\n\n## v2 design goals\n- retrieval quality beyond baseline dense search\n- more explicit evidence handling\n- better evaluation hooks\n\n## Pipeline upgrades\n- hybrid retrieval\n- reranking\n- query rewrite\n- citation-aware answer formatting\n\n## What to measure\n- retrieval hit rate\n- answer support quality\n- latency overhead per added component\n

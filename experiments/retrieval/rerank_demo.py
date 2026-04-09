@@ -1,9 +1,1 @@
-candidates = [
-    ('doc-a', 0.62, 'Transformers and attention basics'),
-    ('doc-b', 0.59, 'RAG pipeline overview'),
-    ('doc-c', 0.55, 'Fine-tuning with LoRA'),
-]
-query = 'attention basics'
-reranked = sorted(candidates, key=lambda x: (query in x[2].lower(), x[1]), reverse=True)
-for item in reranked:
-    print(item)
+query = 'explain why reranking improves rag'\ncandidates = [\n    {'doc': 'doc_a', 'retrieval_score': 0.78, 'text': 'Reranking improves top-k precision in RAG pipelines.'},\n    {'doc': 'doc_b', 'retrieval_score': 0.75, 'text': 'Transformers use multi-head attention.'},\n    {'doc': 'doc_c', 'retrieval_score': 0.71, 'text': 'Cross-encoder rerankers compare query and candidate jointly.'},\n]\nfor item in candidates:\n    item['rerank_score'] = item['retrieval_score'] + (0.2 if 'rerank' in item['text'].lower() else 0.0)\nprint('before:')\nfor x in sorted(candidates, key=lambda x: x['retrieval_score'], reverse=True):\n    print(x['doc'], x['retrieval_score'])\nprint('\\nafter rerank:')\nfor x in sorted(candidates, key=lambda x: x['rerank_score'], reverse=True):\n    print(x['doc'], x['rerank_score'])\n

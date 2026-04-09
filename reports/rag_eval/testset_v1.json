@@ -1,17 +1,1 @@
-{
-  "description": "Initial RAG evaluation set",
-  "examples": [
-    {
-      "id": "q1",
-      "question": "What is retrieval-augmented generation?",
-      "reference_answer": "A generation pipeline augmented with retrieved external context.",
-      "category": "definition"
-    },
-    {
-      "id": "q2",
-      "question": "Why use reranking after retrieval?",
-      "reference_answer": "To improve final context precision by reordering candidate chunks.",
-      "category": "retrieval_quality"
-    }
-  ]
-}
+{\n  "description": "Seed evaluation set for RAG pipeline quality checks",\n  "examples": [\n    {\n      "id": "rag-001",\n      "question": "Why is chunking important in RAG?",\n      "reference_answer": "Chunking balances semantic completeness, retrieval granularity, and token budget.",\n      "category": "retrieval"\n    },\n    {\n      "id": "rag-002",\n      "question": "Why use reranking after retrieval?",\n      "reference_answer": "Reranking improves the final ordering of candidates and raises top-k precision before generation.",\n      "category": "rerank"\n    }\n  ]\n}
