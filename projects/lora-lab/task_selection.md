@@ -1,14 +1,1 @@
-# Task Selection
-
-## Purpose
-task selection memo for the LoRA lab: candidate tasks, data availability, evaluation criteria, and chosen baseline task.
-
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
-
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+# Day 57 — Task Selection\n\n## Goal\nPick a small, realistic fine-tuning task that is narrow enough to execute but meaningful enough to evaluate.\n\n## Candidate tasks\n- support FAQ assistant\n- structured extraction\n- style adaptation\n- domain-specific QA\n\n## Selection criteria\n- enough data can be collected quickly\n- output format is easy to evaluate\n- baseline prompts already work somewhat\n- fine-tuning can plausibly show measurable gain\n\n## Chosen direction\nStart with a narrow instruction-following / domain QA style task so the eval loop remains manageable.\n

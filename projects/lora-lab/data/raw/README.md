@@ -1,3 +1,1 @@
-# Raw Data
-
-Place collected raw datasets or source references here.
+# Day 58 — Raw Data\n\nCollect source data here. Keep a note of:\n- source URL or dataset origin\n- license / usage constraints\n- collection date\n- rough quality notes\n\nThe point is to make later cleaning and evaluation reproducible.\n

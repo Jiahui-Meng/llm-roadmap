@@ -1,14 +1,1 @@
-# Vllm Setup
-
-## Purpose
-vLLM setup notes, prerequisites, example server command, and what to verify during first boot.
-
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
-
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+# Day 47 — vLLM Setup\n\n## Goal\nBring up a first local vLLM-compatible serving stack and validate the request path.\n\n## Checklist\n- choose a compatible model\n- verify CUDA / driver environment\n- start server with a small test model if needed\n- send a sample request\n- record latency and memory observations\n\n## Validation questions\n- does the server boot successfully?\n- can it answer one short prompt?\n- what are the rough GPU memory and latency numbers?\n

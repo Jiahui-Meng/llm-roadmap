@@ -1,22 +1,60 @@
-# Day53 Gptq Gguf
+# Day 53 — GPTQ / GGUF
 
-## Summary
-GPTQ and GGUF overview, offline quantization vs deployment packaging, and local inference implications.
+## 1. 为什么把 GPTQ 和 GGUF 放一起学
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+这两个词常常一起出现在本地部署生态里，但它们不是同一层面的东西。
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+- **GPTQ**：一种量化方法
+- **GGUF**：一种模型文件格式 / 生态打包方式
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+所以 Day 53 的核心就是：
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+> 分清“量化算法”和“部署格式”。
+
+---
+
+## 2. GPTQ 是什么
+
+GPTQ 是一种常见的后训练量化（post-training quantization）方法。
+
+它的目标是：
+- 不重新完整训练模型
+- 通过量化算法直接把模型压缩
+- 尽可能保留输出质量
+
+它更像：
+
+> 模型压缩方法
+
+---
+
+## 3. GGUF 是什么
+
+GGUF 更像是一种部署和推理生态里的模型封装格式。
+
+它常与：
+- llama.cpp
+- 本地 CPU / 边缘设备推理
+- 量化模型分发
+
+联系在一起。
+
+所以 GGUF 更像：
+
+> 让量化模型更容易被本地推理框架消费的一种包装标准。
+
+---
+
+## 4. 为什么这两个都重要
+
+因为当你真正想部署模型时，你需要同时关心：
+- 模型怎么压缩（GPTQ / AWQ / bitsandbytes ...）
+- 模型怎么分发 / 怎么跑（GGUF / llama.cpp / vLLM ...）
+
+只懂量化算法，不懂生态格式，落地会卡住。
+
+---
+
+## 5. 一句话总结
+
+> GPTQ 解决的是“怎么把模型压缩得更小”，GGUF 解决的是“压缩后的模型如何在本地推理生态里被方便地加载和运行”，两者共同构成了现实部署链路的一部分。

@@ -1,22 +1,112 @@
-# Day46 Vllm Overview
+# Day 46 — vLLM Overview
 
-## Summary
-vLLM overview, paged attention intuition, why it matters for serving, and where it fits in a self-hosted stack.
+## 1. 为什么要学 vLLM
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+到这里，你已经理解了：
+- causal LM
+- KV cache
+- 长上下文成本
+- FlashAttention / GQA / MQA
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+下一步自然问题是：
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+> 一个大模型怎么才能被高效地服务出去？
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+vLLM 就是在回答这个问题。
+
+它不是新模型，而是：
+
+> **面向 LLM 推理与服务的高性能系统。**
+
+---
+
+## 2. vLLM 在解决什么
+
+LLM serving 的几个痛点：
+- 自回归生成串行
+- KV cache 很占显存
+- 多请求并发调度低效
+- 批处理不规则
+- 吞吐上不去
+
+vLLM 的价值就在于：
+- 更高效地管理 KV cache
+- 更好地调度请求
+- 更高吞吐地服务模型
+
+---
+
+## 3. 为什么 vLLM 很重要
+
+如果你只会“本地跑一个模型”，那还不算真正理解 LLM 工程。
+
+工程上真正要解决的是：
+- 多用户并发
+- 延迟控制
+- GPU 利用率
+- 长上下文请求管理
+- 显存效率
+
+vLLM 是这条路径上的关键系统组件。
+
+---
+
+## 4. paged attention 的直觉
+
+vLLM 一个非常核心的思想是：
+
+> **PagedAttention**
+
+直觉上，它像操作系统管理虚拟内存一样管理 KV cache：
+- 不把所有 cache 当成连续大块死绑定
+- 而是分页管理
+- 更灵活复用和调度显存空间
+
+这能显著减少：
+- 显存碎片
+- KV cache 浪费
+- 因不规则请求导致的低效内存使用
+
+---
+
+## 5. vLLM 的核心收益
+
+从系统视角看，vLLM 的价值主要在：
+- 提升吞吐
+- 降低显存浪费
+- 更稳地支持多请求并发
+- 更适合生产服务场景
+
+所以它不是“更会回答问题”，而是：
+
+> **让同一个模型回答得更高效。**
+
+---
+
+## 6. 和 Hugging Face Transformers 直接推理的差别
+
+直接用 transformers 跑模型更像：
+- 研究 / 原型 / 单机实验
+
+而 vLLM 更像：
+- 专门为 serving 做优化的运行时
+
+两者不是互斥，而是分工不同：
+- transformers 更适合模型使用与开发
+- vLLM 更适合高性能推理服务
+
+---
+
+## 7. 今天最该记住的 5 句话
+
+1. **vLLM 是服务层，不是模型层。**
+2. **它重点解决 KV cache 和请求调度问题。**
+3. **PagedAttention 是 vLLM 的关键理念之一。**
+4. **vLLM 的价值主要体现在吞吐、显存效率和并发服务。**
+5. **理解 vLLM，标志着你开始从模型学习转向推理系统学习。**
+
+---
+
+## 8. 一句话总结
+
+> vLLM 是一个面向大语言模型推理与服务的高性能系统，它通过更高效的 KV cache 管理和请求调度机制，把“模型能跑”升级成“模型能被高效稳定地服务出去”。

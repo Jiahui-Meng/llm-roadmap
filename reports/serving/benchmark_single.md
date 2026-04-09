@@ -1,14 +1,1 @@
-# Benchmark Single
-
-## Purpose
-single-user latency benchmark template with prompt lengths, generation lengths, and notes on KV cache warmup.
-
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
-
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+# Day 49 — Single-User Benchmark\n\n## Goal\nMeasure a first latency baseline for one user / one request stream.\n\n## Suggested dimensions\n- short prompt, short generation\n- long prompt, short generation\n- short prompt, long generation\n- long prompt, long generation\n\n## Metrics\n- TTFT (time to first token)\n- tokens/sec\n- total latency\n- peak memory\n\n## Why it matters\nSingle-user performance is the cleanest baseline before concurrency is introduced.\n

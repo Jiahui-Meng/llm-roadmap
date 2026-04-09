@@ -1,22 +1,41 @@
-# Day56 Qlora
+# Day 56 — QLoRA
 
-## Summary
-QLoRA basics, NF4 quantization, paged optimizers, and memory-efficient fine-tuning.
+## 1. 什么是 QLoRA
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+QLoRA 可以理解成：
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+> **LoRA + 更激进的量化训练方案**
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+它的目标是：
+- 让更大的模型也能在相对有限资源上做微调
+- 同时尽量保留效果
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+---
+
+## 2. 为什么 QLoRA 很重要
+
+LoRA 已经降低了微调成本，但基础模型本身仍可能很大。
+
+QLoRA 进一步做的是：
+- 用低精度形式保存底座模型
+- 只训练 LoRA adapter
+
+于是你就得到：
+- 更低显存需求
+- 更大模型可微调性
+- 更现实的训练门槛
+
+---
+
+## 3. 你今天要抓住的重点
+
+先不要把所有细节都卷进去，先抓住三点：
+1. QLoRA 仍然是参数高效微调路线
+2. 它把量化和 LoRA 结合起来
+3. 它是“让更大模型在更小硬件上可微调”的关键方法
+
+---
+
+## 4. 一句话总结
+
+> QLoRA 把量化与 LoRA 结合起来，在尽量保留模型能力的同时显著降低微调资源门槛，是大模型参数高效微调走向实用化的重要一步。

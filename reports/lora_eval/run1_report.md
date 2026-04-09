@@ -1,14 +1,1 @@
-# Run1 Report
-
-## Purpose
-before/after LoRA evaluation note covering sample prompts, quality change, hallucination risk, and cost trade-offs.
-
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
-
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+# Day 61 — LoRA Eval Report\n\n## Goal\nCompare before/after behavior of the first LoRA or QLoRA run.\n\n## What to compare\n- instruction following fidelity\n- hallucination rate\n- tone / style consistency\n- domain correctness\n\n## Suggested structure\n1. baseline prompts and outputs\n2. fine-tuned prompts and outputs\n3. error cases\n4. where tuning helped\n5. where tuning hurt\n\n## Main takeaway\nA useful fine-tuning report should show not only gains, but also regressions and trade-offs.\n

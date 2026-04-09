@@ -1,3 +1,1 @@
-# Run 1
-
-Track configuration, logs, checkpoints, and notes for the first LoRA/QLoRA experiment.
+# Day 60 — Training Run 1\n\n## Record here\n- base model\n- LoRA / QLoRA config\n- rank / alpha / target modules\n- batch size / LR / epochs\n- hardware used\n- train and eval observations\n\nThis directory is the anchor for making the first run reproducible.\n

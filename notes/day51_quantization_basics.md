@@ -1,22 +1,98 @@
-# Day51 Quantization Basics
+# Day 51 — Quantization Basics
 
-## Summary
-Quantization basics: FP16/BF16/INT8/INT4, weight-only vs activation quantization, and deployment trade-offs.
+## 1. 为什么需要量化
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+大模型推理最大的压力之一来自：
+- 显存占用
+- 内存带宽
+- 推理成本
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+量化（quantization）的核心目标就是：
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+> **用更低精度表示参数或激活，从而降低成本。**
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+---
+
+## 2. 常见精度类型
+
+### FP16 / BF16
+- 仍是浮点
+- 常见于训练 / 推理
+- 精度相对较高
+
+### INT8
+- 更低精度
+- 常见于推理优化
+
+### INT4
+- 更激进压缩
+- 更省内存
+- 但更容易损失质量
+
+---
+
+## 3. 为什么量化能省资源
+
+如果参数从 FP16 变成 INT8 / INT4：
+- 单参数占用更少字节
+- 模型总内存更小
+- KV / 带宽压力降低
+- 更容易部署到有限资源设备
+
+所以量化常常是：
+
+> 以少量质量损失，换取很大部署收益。
+
+---
+
+## 4. weight-only vs activation quantization
+
+### weight-only quantization
+- 只量化权重
+- 更容易落地
+- 常用于很多推理方案
+
+### activation quantization
+- 同时量化中间激活
+- 可能更省
+- 但更复杂，也更容易带来误差
+
+---
+
+## 5. 量化的核心 trade-off
+
+量化永远不是免费午餐，核心权衡是：
+- 质量
+- 延迟
+- 显存 / 内存
+- 可部署性
+
+问题不只是“能不能量化”，而是：
+
+> **在我的任务质量要求下，值不值得量化到这个程度。**
+
+---
+
+## 6. 为什么 Day 51 很重要
+
+因为从这一刻开始，你会开始用工程视角看模型：
+- 不是只问效果多强
+- 而是问它能否在给定硬件上跑起来、跑得值不值
+
+量化是连接“模型能力”和“部署现实”的关键主题。
+
+---
+
+## 7. 今天最该记住的 5 句话
+
+1. **量化是用更低精度换更低资源成本。**
+2. **INT8 / INT4 常用于推理优化。**
+3. **weight-only 比 activation quantization 更常见也更容易落地。**
+4. **量化的关键是质量与成本之间的 trade-off。**
+5. **量化是现代 LLM 部署能力的重要基础。**
+
+---
+
+## 8. 一句话总结
+
+> Quantization 通过降低参数或激活的数值精度来减少显存、带宽和部署成本，是把大模型从“实验室可跑”推进到“现实中可部署”的关键工程技术之一。

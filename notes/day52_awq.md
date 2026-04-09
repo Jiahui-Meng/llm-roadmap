@@ -1,22 +1,51 @@
-# Day52 Awq
+# Day 52 — AWQ
 
-## Summary
-AWQ summary: activation-aware weight quantization, practical benefits, and when to use it.
+## 1. 什么是 AWQ
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+AWQ = **Activation-aware Weight Quantization**。
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+它是量化里的一个重要方向，核心思想是：
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+> 在做权重量化时，考虑激活分布对误差的影响，从而更好地保住模型质量。
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+---
+
+## 2. 为什么 AWQ 有意义
+
+普通量化可能会简单粗暴地压缩权重，但不同权重对最终输出的重要性并不一样。
+
+AWQ 的直觉是：
+- 某些权重对应的激活路径更关键
+- 这些部分如果量化过头，模型质量掉得会更厉害
+
+所以 AWQ 尝试：
+
+> 更“有意识”地量化，而不是平均对待所有权重。
+
+---
+
+## 3. AWQ 的工程价值
+
+AWQ 之所以重要，是因为它常被用于：
+- 本地部署
+- 边缘推理
+- 显存敏感的服务
+
+它通常希望实现：
+- 明显省资源
+- 但质量下降尽量可控
+
+---
+
+## 4. 你今天要抓住的重点
+
+你不需要把 AWQ 的所有细节推完，但要抓住：
+- 它是量化方法，不是模型结构
+- 它强调 activation-aware
+- 它的目标是更好的质量 / 资源平衡
+
+---
+
+## 5. 一句话总结
+
+> AWQ 是一种考虑激活影响的权重量化方法，它的目标是在压缩模型的同时尽量减少对输出质量的破坏，因此在现实部署场景里非常有价值。

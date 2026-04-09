@@ -1,22 +1,55 @@
-# Day55 Lora Intro
+# Day 55 — LoRA Intro
 
-## Summary
-LoRA fundamentals: low-rank adapters, why they work, and why PEFT is useful in real projects.
+## 1. 为什么要学 LoRA
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+你前面已经从 Transformer 走到了 LoRA bridge。现在要正式进入微调层了。
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+LoRA 的问题意识很现实：
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+> 如果全量微调太贵，有没有更轻量的方法让模型适应新任务？
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+答案就是：LoRA。
+
+---
+
+## 2. LoRA 的核心直觉
+
+LoRA 认为：
+- 任务适配需要的参数变化，未必需要更新整张大矩阵
+- 可以用低秩增量近似这种变化
+
+所以它做的是：
+- 冻结大模型原参数
+- 只训练小型低秩适配模块
+
+这样可以大幅降低：
+- 显存开销
+- 存储开销
+- 训练成本
+
+---
+
+## 3. LoRA 为什么适合 LLM 微调
+
+因为 LLM 里有大量线性层：
+- Q/K/V projection
+- output projection
+- FFN layers
+
+这些地方很适合挂低秩适配器。
+
+LoRA 因此成为 PEFT（参数高效微调）最经典的方法之一。
+
+---
+
+## 4. LoRA 的现实意义
+
+LoRA 不是只是“便宜一点的微调”，而是：
+
+> 让任务定制化从少数大厂能力，变成更多团队都能尝试的工程路径。
+
+---
+
+## 5. 一句话总结
+
+> LoRA 通过在关键线性层上训练低秩适配增量，而不是更新整个大模型参数，显著降低了大模型任务适配的成本，因此成为参数高效微调的代表方法。

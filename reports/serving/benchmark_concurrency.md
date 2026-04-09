@@ -1,14 +1,1 @@
-# Benchmark Concurrency
-
-## Purpose
-concurrency benchmark template comparing throughput, p95 latency, and batching behavior under load.
-
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
-
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+# Day 50 — Concurrency Benchmark\n\n## Goal\nEvaluate how throughput and latency behave when multiple requests are served together.\n\n## What to observe\n- throughput gain vs single-user mode\n- p50 / p95 latency changes\n- batching efficiency\n- memory pressure under load\n\n## Why it matters\nProduction systems are rarely bottlenecked by one request; concurrency reveals scheduling quality and cache pressure.\n

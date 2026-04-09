@@ -1,11 +1,1 @@
-import requests
-
-payload = {
-    "model": "meta-llama/Meta-Llama-3-8B-Instruct",
-    "prompt": "Explain KV cache in one paragraph.",
-    "max_tokens": 128,
-}
-print('Example request payload for a vLLM-compatible server:')
-print(payload)
-print('Replace the URL below with your local vLLM endpoint if available.')
-print('requests.post("http://localhost:8000/generate", json=payload)')
+payload = {\n    'model': 'meta-llama/Meta-Llama-3-8B-Instruct',\n    'prompt': 'Explain KV cache in one paragraph.',\n    'max_tokens': 128\n}\nprint('Example payload for a vLLM-compatible generate endpoint:')\nprint(payload)\nprint('Example curl:')\nprint(\"curl http://localhost:8000/generate -d '{}'\".format(payload))\n
