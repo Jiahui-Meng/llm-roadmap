@@ -1,14 +1,34 @@
-# Design
+# Open Research Copilot — Design
 
-## Purpose
-design note for an open research copilot: user goals, workflow graph, tool layer, memory, evaluation, and safety.
+## Goal
+Build a research agent that can:
+1. Accept a research question
+2. Search for relevant sources
+3. Scrape and extract key content
+4. Retrieve from local knowledge base
+5. Summarize findings with citations
+6. Present a structured research brief
 
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
+## Architecture
+```
+user question
+-> query rewrite
+-> search tool (web / local)
+-> scrape / retrieve
+-> summarize with citations
+-> output structured brief
+```
 
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+## Tools needed
+- search (web search API or local index)
+- scrape (BeautifulSoup / readability)
+- retrieve (local RAG index)
+- summarize (LLM with citation prompt)
+
+## Workflow type
+Structured workflow with defined steps, not fully autonomous agent.
+
+## Success criteria
+- produces a useful research brief
+- citations are traceable
+- can be run end-to-end in one command

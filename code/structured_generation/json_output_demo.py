@@ -1,8 +1,23 @@
+"""Day 63 — JSON output demo for structured generation."""
 import json
 
-sample = {
-    "title": "Multi-head attention",
-    "summary": "Parallel attention heads learn different interaction patterns.",
-    "key_terms": ["attention", "head", "projection", "concat", "W_o"]
-}
-print(json.dumps(sample, ensure_ascii=False, indent=2))
+SYSTEM = "You are a helpful assistant. Always respond in valid JSON."
+USER = "List 3 benefits of RAG in a JSON array."
+
+# Simulated structured output
+response = json.dumps({
+    "benefits": [
+        "Reduces hallucination by grounding answers in retrieved evidence",
+        "Enables dynamic knowledge updates without retraining",
+        "Improves citation and traceability of answers"
+    ]
+}, indent=2)
+
+print("Prompt:", USER)
+print("Structured output:")
+print(response)
+
+# Validate
+parsed = json.loads(response)
+assert isinstance(parsed["benefits"], list)
+print(f"\nValidation passed: {len(parsed['benefits'])} items")

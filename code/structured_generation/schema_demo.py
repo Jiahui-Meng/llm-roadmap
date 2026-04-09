@@ -1,17 +1,31 @@
+"""Day 64 — Schema-constrained output demo."""
 import json
 
-schema = {
-  "type": "object",
-  "properties": {
-    "topic": {"type": "string"},
-    "difficulty": {"type": "string", "enum": ["easy", "medium", "hard"]},
-    "takeaways": {"type": "array", "items": {"type": "string"}}
-  },
-  "required": ["topic", "difficulty", "takeaways"]
+SCHEMA = {
+    "type": "object",
+    "properties": {
+        "title": {"type": "string"},
+        "summary": {"type": "string", "maxLength": 200},
+        "tags": {"type": "array", "items": {"type": "string"}, "maxItems": 5}
+    },
+    "required": ["title", "summary", "tags"]
 }
-example = {"topic": "RoPE", "difficulty": "medium", "takeaways": ["encodes relative position", "works well for decoder LLMs"]}
-print('Schema:')
-print(json.dumps(schema, indent=2))
-print('
-Example structured output:')
-print(json.dumps(example, ensure_ascii=False, indent=2))
+
+# Simulated constrained output
+output = {
+    "title": "KV Cache in LLM Inference",
+    "summary": "KV cache stores historical key and value tensors to avoid redundant computation during autoregressive generation, trading memory for speed.",
+    "tags": ["kv-cache", "inference", "serving", "transformer"]
+}
+
+print("Schema:")
+print(json.dumps(SCHEMA, indent=2))
+print("\nOutput:")
+print(json.dumps(output, indent=2))
+
+# Basic validation
+for field in SCHEMA["required"]:
+    assert field in output, f"Missing required field: {field}"
+assert len(output["summary"]) <= 200
+assert len(output["tags"]) <= 5
+print("\nSchema validation passed.")

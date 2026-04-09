@@ -1,14 +1,19 @@
-# Comparison
+# Structured Generation Comparison
 
-## Purpose
-comparison between free-form prompting and structured generation on stability, parseability, and downstream reliability.
+## Goal
+Compare free-form prompting vs structured (JSON-constrained) generation on output stability and usability.
 
-## Main sections
-- scope
-- assumptions
-- implementation notes
-- risks or failure modes
-- next iteration ideas
+## Dimensions
+- format consistency (does output always parse?)
+- content accuracy
+- downstream usability (can code consume it directly?)
 
-## Working notes
-This file is generated as a roadmap artifact and is intended to be refined with real experiments later.
+## Expected finding
+Structured generation significantly reduces format errors and makes outputs more reliable for downstream systems, at the cost of slightly more rigid prompt design.
+
+## Suggested experiment
+Run 10 identical queries:
+1. free-form prompt → check if output is valid JSON
+2. schema-constrained prompt → check same
+
+Record parse success rate and format stability.

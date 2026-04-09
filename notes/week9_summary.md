@@ -1,22 +1,17 @@
-# Week9 Summary
+# Week 9 Summary — SGLang and Structured Generation
 
-## Summary
-Week 9 summary covering SGLang, structured output, schema constraints, failure modes, and reusable output modules.
+## What we covered
+- SGLang as a programmable LLM interaction runtime
+- JSON output generation
+- Schema-constrained extraction
+- Free-form vs structured output comparison
+- Reusable structured generation module
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+## Key takeaways
+1. Structured generation makes LLM output more reliable for downstream consumption
+2. SGLang sits above serving engines and provides higher-level orchestration
+3. Schema validation catches format errors before they propagate
+4. The trade-off is between output flexibility and format reliability
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
-
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
-
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+## Connection to roadmap
+Structured generation is the bridge between "LLM can generate text" and "LLM output can be consumed by code." This is essential for agent tool calling, data extraction, and any pipeline where downstream systems expect predictable formats.
