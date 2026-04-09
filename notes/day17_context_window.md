@@ -1,22 +1,152 @@
-# Day17 Context Window
+# Day 17 — Context Window
 
-## Summary
-Context window limits, long-context costs, Lost in the Middle, and why retrieval remains important.
+## 1. 什么是 context window
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+context window 指的是：
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+> 模型在一次前向计算中，能够同时看到的 token 上限。
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+例如：
+- 4K context
+- 8K context
+- 32K context
+- 128K context
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+都表示一次推理最多能处理多少 token。
+
+---
+
+## 2. 为什么 context window 很重要
+
+context window 决定了模型一次性能记住多少内容。
+
+它直接影响：
+- 长文档问答
+- 多轮对话
+- 代码仓分析
+- RAG 上下文拼接
+- Agent 任务规划
+
+如果窗口太小：
+- 信息放不下
+- 需要截断
+- 容易丢关键上下文
+
+---
+
+## 3. 为什么长上下文很贵
+
+attention 的主要代价和序列长度强相关。
+
+在经典 attention 下：
+- 时间复杂度大致与 `n^2` 相关
+- 空间复杂度也会被 attention matrix 拖高
+
+所以随着 context 增长：
+- 显存压力上升
+- 延迟上升
+- 成本上升
+
+这也是为什么“更长 context”不是白送的能力。
+
+---
+
+## 4. Lost in the Middle 现象
+
+长上下文并不意味着模型会均匀利用所有上下文。
+
+著名现象是：
+
+> 模型常常更擅长利用开头和结尾的信息，而对中间信息利用较弱。
+
+这被称为 **Lost in the Middle**。
+
+也就是说：
+- 能塞进去很多 token
+- 不代表模型就能有效利用它们
+
+---
+
+## 5. 为什么 RAG 仍然重要
+
+有人会以为：
+- 既然模型有 128K 上下文
+- 那就不需要 RAG 了
+
+这通常不成立。因为：
+1. 长上下文很贵
+2. 模型未必能高效利用全部内容
+3. 检索可以提高相关性密度
+4. 检索能减少无关噪声
+
+所以长上下文和 RAG 不是替代关系，更像互补关系。
+
+---
+
+## 6. context window 的工程含义
+
+在真实系统里，你常常要做这些权衡：
+- 全量塞进去 vs 检索精选
+- 长 prompt vs 低延迟
+- 更长上下文 vs 更低成本
+- 全历史对话 vs 摘要记忆
+
+所以 context window 不只是模型规格参数，而是系统设计约束。
+
+---
+
+## 7. chunking 为什么和 context window 强相关
+
+RAG 里的 chunking 策略本质上是在解决：
+
+> 怎样把文档切成既能放进上下文、又保留语义完整性的片段。
+
+如果 chunk 太小：
+- 语义断裂
+
+如果 chunk 太大：
+- 浪费上下文预算
+- 检索噪声变多
+
+所以 context window 和 chunking 是强耦合的。
+
+---
+
+## 8. 长上下文不是万能记忆
+
+再强调一次：
+- 长上下文是临时工作记忆
+- 不是稳定知识库
+- 也不是高效检索系统
+
+如果你要：
+- 更新信息
+- 外部知识对齐
+- 大量文档支持
+
+RAG / memory / retrieval 仍然是必要系统层。
+
+---
+
+## 9. 今天最该记住的 5 句话
+
+1. **context window 是模型一次能处理的 token 上限。**
+2. **长上下文能力会显著增加计算与内存成本。**
+3. **能放进去，不等于能有效利用。**
+4. **Lost in the Middle 说明长上下文利用并不均匀。**
+5. **长上下文不会让 RAG 失效，反而更需要检索做相关性筛选。**
+
+---
+
+## 10. 今日任务
+
+1. 阅读 Lost in the Middle
+2. 阅读长上下文 / chunking 相关博客
+3. 写出：为什么长上下文不等于不需要 RAG
+4. 思考：如果做一个文档问答系统，你会优先扩 context 还是加检索？
+
+---
+
+## 11. 一句话总结
+
+> Context window 决定了模型一次能处理多少 token，但更长上下文会带来显著成本，而且模型也未必能有效利用全部信息，因此实际系统仍然需要检索、chunking 和上下文管理策略配合使用。
