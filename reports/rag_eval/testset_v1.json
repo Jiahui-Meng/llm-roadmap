@@ -1,0 +1,17 @@
+{
+  "description": "Initial RAG evaluation set",
+  "examples": [
+    {
+      "id": "q1",
+      "question": "What is retrieval-augmented generation?",
+      "reference_answer": "A generation pipeline augmented with retrieved external context.",
+      "category": "definition"
+    },
+    {
+      "id": "q2",
+      "question": "Why use reranking after retrieval?",
+      "reference_answer": "To improve final context precision by reordering candidate chunks.",
+      "category": "retrieval_quality"
+    }
+  ]
+}

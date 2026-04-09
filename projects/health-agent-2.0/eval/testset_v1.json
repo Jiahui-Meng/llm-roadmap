@@ -1,0 +1,15 @@
+{
+  "description": "Health agent evaluation seed set",
+  "examples": [
+    {
+      "id": "h1",
+      "query": "Summarize the medication timeline.",
+      "category": "timeline"
+    },
+    {
+      "id": "h2",
+      "query": "What labs support the diagnosis?",
+      "category": "evidence"
+    }
+  ]
+}

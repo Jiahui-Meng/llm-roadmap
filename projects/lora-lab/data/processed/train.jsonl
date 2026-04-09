@@ -1,0 +1,2 @@
+{"instruction": "Explain self-attention in plain English.", "input": "", "output": "Self-attention lets each token look at other tokens and combine relevant information into a new representation."}
+{"instruction": "What is the benefit of RAG?", "input": "", "output": "RAG adds external retrieved knowledge so answers can be fresher and better grounded than model-only generation."}
