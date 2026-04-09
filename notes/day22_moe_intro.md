@@ -1,22 +1,162 @@
-# Day22 Moe Intro
+# Day 22 — MoE Intro
 
-## Summary
-Mixture of Experts introduction, dense vs sparse activation, and why MoE scales capacity differently from dense models.
+## 1. 为什么会出现 MoE
 
-## Why it matters
-This topic connects theory to engineering. The goal is not just to define the term, but to explain where it changes implementation choices, cost, latency, or evaluation.
+到目前为止，你学的大多数 block 都默认是 **dense model**：
+- 每个 token
+- 经过同一套参数
+- 每一层都完整激活
 
-## Key points
-- define the mechanism in plain language
-- explain the main trade-offs
-- connect it to earlier Transformer foundations
-- list at least one production implication
+这很简单，但有一个问题：
 
-## Practical checklist
-- what problem does this technique solve?
-- what new complexity does it introduce?
-- what would I measure in a real system?
-- what failure modes should I expect?
+> 如果想持续增大模型容量，计算成本会一起暴涨。
 
-## Short explanation
-Write a 2-minute spoken explanation of this topic and compare it with the simpler baseline.
+Mixture of Experts（MoE）提出了一种不同思路：
+
+> **不是每次都激活全部参数，而是只激活一小部分“专家网络”。**
+
+这就带来了一个核心优势：
+- 总参数量可以很大
+- 但单次 token 计算成本不必按同样比例增加
+
+---
+
+## 2. MoE 的核心直觉
+
+你可以把普通 dense FFN 想成：
+- 所有 token 都进同一个大车间加工
+
+而 MoE 更像：
+- 有很多专家车间
+- 每个 token 由路由器分配给其中一两个专家处理
+
+所以 MoE 的核心不是“更多层”，而是：
+
+> **条件计算（conditional computation）**
+
+也就是说：
+- 参数池很大
+- 但每次只用一部分
+
+---
+
+## 3. Dense model vs Sparse MoE
+
+### Dense model
+- 每层所有参数都参与
+- 实现简单
+- 计算稳定
+- 扩大模型时成本同步上升
+
+### Sparse MoE
+- 只有部分专家被激活
+- 单次 token 只走部分参数路径
+- 参数规模可以更大
+- 但路由、负载均衡、服务复杂度更高
+
+所以 MoE 本质是：
+
+> 用系统复杂度换参数容量扩展能力。
+
+---
+
+## 4. MoE 的基本结构
+
+一个最简化的 MoE 层可以理解成：
+
+1. 输入 token 表示进入 router
+2. router 决定这个 token 送到哪个专家
+3. 被选中的专家处理 token
+4. 把结果合并输出
+
+常见结构里：
+- experts 往往是多个 FFN
+- router 负责打分和选路
+- token 只进入 top-k 个 experts
+
+---
+
+## 5. 为什么说 MoE 提高的是“容量”，不一定是“每 token 计算量”
+
+假设：
+- 你有 16 个专家
+- 但每个 token 只路由到 2 个专家
+
+那意味着：
+- 模型总参数量很大
+- 但单个 token 只使用其中一部分参数
+
+所以你可以说：
+- **capacity 上去了**
+- **per-token active compute 没有按总参数同比例暴涨**
+
+这就是 MoE 最吸引人的点。
+
+---
+
+## 6. 为什么 MoE 在大模型里有吸引力
+
+大模型扩展通常有两个痛点：
+1. 训练成本高
+2. 推理成本高
+
+MoE 的诱惑在于：
+- 似乎可以把总参数做得更大
+- 又不让单 token 成本按同样比例上升
+
+因此它对“超大模型扩展”特别有吸引力。
+
+不过这只是表面。真正落地时，还有很多系统问题要解决。
+
+---
+
+## 7. MoE 的第一层代价：路由问题
+
+只要你不再让所有 token 走同一条路径，就会有新问题：
+- 哪个 token 去哪个 expert？
+- 会不会所有 token 都挤到同一个 expert？
+- 会不会有些 expert 基本不工作？
+
+这就是为什么 MoE 不只是模型结构问题，更是：
+
+> **路由与系统调度问题。**
+
+Day 23 会专门讲 routing 和 load balancing。
+
+---
+
+## 8. MoE 适合理解成什么
+
+你现在先不要把 MoE 理解得太复杂。
+
+最简单的理解方式是：
+
+> Dense 模型 = 所有人都走同一套参数
+> MoE 模型 = 不同 token 根据内容走不同专家路径
+
+只要你抓住“条件计算 + 专家分工”这两点，今天就算过关。
+
+---
+
+## 9. 今天最该记住的 5 句话
+
+1. **MoE 是一种条件计算结构。**
+2. **它允许模型有很大总参数量，但每个 token 只激活少量专家。**
+3. **expert 通常是多个并行的 FFN 子网络。**
+4. **MoE 的收益在于容量扩展，代价在于路由与系统复杂度。**
+5. **MoE 不是免费午餐，它把问题从“参数不够”转成了“路由是否高效”。**
+
+---
+
+## 10. 今日任务
+
+1. 阅读 Hugging Face 的 MoE blog
+2. 阅读 Switch Transformers 的 abstract / intro
+3. 写出 dense model 和 sparse MoE 的区别
+4. 用自己的话解释什么叫 conditional computation
+
+---
+
+## 11. 一句话总结
+
+> MoE 通过让不同 token 只激活少量专家网络，把“更大模型容量”和“相对可控的单 token 计算成本”结合起来，但代价是更复杂的路由、负载均衡和系统实现问题。

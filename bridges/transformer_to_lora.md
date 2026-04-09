@@ -1,21 +1,78 @@
-# Transformer To Lora
+# Day 29 — Transformer to LoRA
 
-## Bridge question
-This note explains how Transformer parameter structure makes low-rank adaptation a practical fine-tuning path.
+## 1. 为什么会从 Transformer 走向 LoRA
 
-## From foundations to systems
-Start from the Transformer mechanics you already know:
-- token embeddings
-- self-attention and multi-head attention
-- context window limits
-- autoregressive decoding
+当你理解了 Transformer block，你就会意识到：
+- 模型里充满了大型线性层
+- 参数量极大
+- 全量微调成本很高
 
-Then ask: what breaks or becomes expensive in production? The answer creates demand for a new system layer.
+于是自然会问：
 
-## Main bridge
-- **Model-only approach**: simple but limited by context, freshness, or cost.
-- **System-augmented approach**: adds retrieval / adapters / serving optimization / tools.
-- **Engineering implication**: new observability, evaluation, and failure modes appear.
+> 如果只想让模型适配一个新任务，真的需要把所有参数都更新吗？
 
-## What to remember
-A bridge note should connect a model primitive to an engineering system, not just define a buzzword.
+LoRA 给出的答案是：
+
+> **不一定。可以只训练一个低秩增量。**
+
+---
+
+## 2. LoRA 在补什么问题
+
+全量微调的代价包括：
+- 显存高
+- 存储高
+- 训练慢
+- 每个任务都要保存整份模型副本
+
+LoRA 的思路是：
+- 主模型参数冻结
+- 只在关键线性层旁边加小型低秩适配器
+- 训练这些小参数
+
+于是你获得：
+- 更低训练成本
+- 更小任务适配增量
+- 更方便的多任务切换
+
+---
+
+## 3. 为什么 Transformer 特别适合 LoRA
+
+因为 Transformer 的很多核心计算都建立在矩阵乘法上：
+- attention projection
+- FFN linear layers
+
+LoRA 正好就是对这些线性层做低秩更新。
+
+所以从 Transformer 到 LoRA 的桥梁非常自然：
+
+> 大量线性层 + 高参数量 + 任务适配需求 → PEFT / LoRA
+
+---
+
+## 4. LoRA 的本质理解
+
+LoRA 不是改造 Transformer 的骨架，而是：
+
+> 在原有大矩阵更新上，用一个低秩分解去近似任务适配所需的变化量。
+
+所以它更像：
+- 在不重训整座楼的情况下
+- 只局部加装一个轻量调节模块
+
+---
+
+## 5. 今天最该记住的 5 句话
+
+1. **Transformer 里有大量高成本线性层。**
+2. **全量微调大模型往往代价太高。**
+3. **LoRA 用低秩增量适配任务，而不是更新所有参数。**
+4. **Transformer 的线性层结构让 LoRA 很自然。**
+5. **LoRA 是从模型理解走向高效任务适配的重要桥梁。**
+
+---
+
+## 6. 一句话总结
+
+> 从 Transformer 走向 LoRA，本质上是从“理解模型内部的大型线性参数结构”进一步走到“如何以更低成本对这些结构做任务适配”，这正是参数高效微调的核心动机。
