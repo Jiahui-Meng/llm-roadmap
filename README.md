@@ -1,6 +1,6 @@
 # llm-roadmap
 
-A structured roadmap for going from Transformer foundations to production-grade LLM engineering.
+A structured **89-day** roadmap for going from Transformer foundations to production-grade LLM engineering.
 
 ## Target Profile
 
@@ -31,7 +31,7 @@ By the end of this roadmap, you should have:
 - `docs/links.md` — direct clickable reading links by topic
 - `docs/projects.md` — flagship project plans and dataset ideas
 - `docs/future-topics.md` — important follow-up topics not yet added to the main plan
-- `notes/` — daily and weekly notes
+- `notes/` — daily and weekly notes (Day 1–89, including week summaries)
 - `code/` — foundational implementations and experiments
 - `experiments/` — retrieval, tokenization, serving, and tuning experiments
 - `bridges/` — notes that connect theory to engineering systems

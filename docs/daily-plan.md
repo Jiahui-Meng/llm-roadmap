@@ -1,4 +1,4 @@
-# Full Daily Plan (84 Days)
+# Full Daily Plan (89 Days)
 
 This plan assumes ~5–6 focused hours per workday.
 
