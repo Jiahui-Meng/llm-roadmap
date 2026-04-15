@@ -239,7 +239,7 @@ Daily structure:
 
 ## Week 4 — Bridge to LLM Engineering
 
-### Day 25
+### Day 25 — Transformer to RAG Bridge
 - Read: RAG paper (Intro + Method)  
   https://arxiv.org/abs/2005.11401
 - Read: LangChain RAG tutorial  
@@ -247,7 +247,7 @@ Daily structure:
 - Write bridge note: Transformer limitations → RAG
 - Output: `bridges/transformer_to_rag.md`
 
-### Day 26
+### Day 26 — RAG Ingestion and Chunking
 - Read: chunking strategies  
   https://www.pinecone.io/learn/chunking-strategies/
 - Read: LlamaIndex text splitting concepts  
@@ -255,7 +255,7 @@ Daily structure:
 - Implement fixed-size, overlap, paragraph chunking on a long article
 - Output: `experiments/retrieval/chunking_demo.ipynb`
 
-### Day 27
+### Day 27 — RAG Embedding and Indexing
 - Read: sentence-transformers docs  
   https://www.sbert.net/
 - Read: FAISS getting started  
@@ -263,7 +263,7 @@ Daily structure:
 - Implement a tiny semantic retrieval demo with 2 embedding models
 - Output: `code/retrieval/basic_retrieval_demo.py`
 
-### Day 28
+### Day 28 — Reranker
 - Read: reranking overview  
   https://www.pinecone.io/learn/series/rag/rerankers/
 - Read: BGE reranker model card  
@@ -272,7 +272,7 @@ Daily structure:
 - If time: run a reranker demo
 - Output: `notes/day28_reranker.md`
 
-### Day 29
+### Day 29 — Transformer to LoRA Bridge
 - Read: LoRA paper (Abstract, Intro, Method figure)  
   https://arxiv.org/abs/2106.09685
 - Read: PEFT docs  
@@ -280,7 +280,7 @@ Daily structure:
 - Write bridge note: Transformer linear layers → LoRA injection points
 - Output: `bridges/transformer_to_lora.md`
 
-### Day 30
+### Day 30 — Transformer to vLLM Bridge
 - Read: vLLM overview + docs  
   https://docs.vllm.ai/
 - Read: vLLM GitHub  
@@ -288,7 +288,7 @@ Daily structure:
 - Write bridge note: KV cache → serving → vLLM
 - Output: `bridges/transformer_to_vllm.md`
 
-### Day 31
+### Day 31 — Transformer to Agent Bridge
 - Read: ReAct intro  
   https://arxiv.org/abs/2210.03629
 - Read: LangGraph intro  
@@ -302,7 +302,7 @@ Daily structure:
 
 ## Week 5 — Minimal RAG Prototype
 
-### Day 32
+### Day 32 — RAG Architecture
 - Read: RAG pipeline overview (LangChain)  
   https://python.langchain.com/docs/tutorials/rag/
 - Read: LlamaIndex starter docs  
@@ -311,7 +311,7 @@ Daily structure:
 - Pick a small corpus (blogs, model cards, dataset cards)
 - Output: `notes/day32_rag_architecture.md`
 
-### Day 33
+### Day 33 — RAG Ingestion Pipeline
 - Read: trafilatura docs for web text extraction  
   https://trafilatura.readthedocs.io/
 - Read: Beautiful Soup docs  
@@ -320,7 +320,7 @@ Daily structure:
 - Normalize and store documents with metadata
 - Output: `code/rag_pipeline/ingest_demo.py`
 
-### Day 34
+### Day 34 — RAG Chunking Strategies
 - Read: FAISS getting started  
   https://github.com/facebookresearch/faiss/wiki/Getting-started
 - Read: pgvector docs  
@@ -328,13 +328,13 @@ Daily structure:
 - Implement embedding + indexing (FAISS or pgvector)
 - Output: `code/rag_pipeline/index_demo.py`
 
-### Day 35
+### Day 35 — RAG Embedding Selection
 - Read: sentence-transformers semantic search examples  
   https://www.sbert.net/examples/applications/semantic-search/README.html
 - Implement retrieval and top-k inspection tool
 - Output: `code/rag_pipeline/retrieve_demo.py`
 
-### Day 36
+### Day 36 — RAG Index Construction
 - Read: prompt engineering guide for grounded QA  
   https://www.promptingguide.ai/
 - Read: HF generation docs  
@@ -343,14 +343,14 @@ Daily structure:
 - Use a simple model or API for now
 - Output: `code/rag_pipeline/generate_demo.py`
 
-### Day 37
+### Day 37 — RAG End-to-End Pipeline v1
 - Read: Streamlit docs or FastAPI docs  
   https://streamlit.io/  
   https://fastapi.tiangolo.com/
 - Combine steps into a minimal CLI or notebook RAG prototype
 - Output: `projects/rag-prototype-v1/`
 
-### Day 38
+### Day 38 — RAG Prototype v1 README and Failure Cases
 - Read: good README examples (choose one favorite OSS repo)
 - Write README and failure cases for prototype v1
 - Output: `projects/rag-prototype-v1/README.md`
@@ -359,7 +359,7 @@ Daily structure:
 
 ## Week 6 — Advanced RAG and Evaluation
 
-### Day 39
+### Day 39 — Hybrid Retrieval
 - Read: hybrid retrieval overview  
   https://www.pinecone.io/learn/series/rag/hybrid-search/
 - Read: rank-bm25 repo  
@@ -367,7 +367,7 @@ Daily structure:
 - Add BM25 or lexical retrieval baseline
 - Output: `experiments/retrieval/hybrid_search_demo.py`
 
-### Day 40
+### Day 40 — Reranking Integration
 - Read: rerankers article  
   https://www.pinecone.io/learn/series/rag/rerankers/
 - Read: jina reranker models  
@@ -376,7 +376,7 @@ Daily structure:
 - Compare retrieval-only vs reranked results
 - Output: `experiments/retrieval/rerank_demo.py`
 
-### Day 41
+### Day 41 — Query Rewrite
 - Read: query transformation concepts in LangChain  
   https://python.langchain.com/docs/tutorials/rag/
 - Read: multi-query retrieval guide  
@@ -384,14 +384,14 @@ Daily structure:
 - Implement a simple query rewrite step
 - Output: `experiments/retrieval/query_rewrite_demo.py`
 
-### Day 42
+### Day 42 — Citation Grounding
 - Read: citation / grounded QA ideas from RAGAS or TruLens docs  
   https://docs.ragas.io/  
   https://www.trulens.org/
 - Add citation grounding to answers
 - Output: `projects/rag-prototype-v2/citation_pipeline.py`
 
-### Day 43
+### Day 43 — RAG Evaluation Set
 - Read: RAGAS docs  
   https://docs.ragas.io/
 - Read: DeepEval docs  
@@ -399,14 +399,14 @@ Daily structure:
 - Build a small evaluation set (30–50 questions)
 - Output: `reports/rag_eval/testset_v1.json`
 
-### Day 44
+### Day 44 — RAG Ablation Analysis
 - Read: TruLens docs  
   https://www.trulens.org/
 - Compare chunking / embedding / reranker variants
 - Write result tables
 - Output: `reports/rag_eval/ablation_results.md`
 
-### Day 45
+### Day 45 — RAG Prototype v2 Packaging
 - Review all Week 6 experiments
 - Package advanced RAG prototype v2 with evaluation report
 - Output: `projects/rag-prototype-v2/`
@@ -415,7 +415,7 @@ Daily structure:
 
 ## Week 7 — vLLM and Serving
 
-### Day 46
+### Day 46 — vLLM Overview
 - Read: vLLM official docs overview  
   https://docs.vllm.ai/
 - Read: vLLM GitHub / examples  
@@ -423,7 +423,7 @@ Daily structure:
 - Write note: serving problems vLLM solves
 - Output: `notes/day46_vllm_overview.md`
 
-### Day 47
+### Day 47 — vLLM Setup
 - Read: vLLM quickstart  
   https://docs.vllm.ai/
 - Read: model cards for one target model (Qwen / Llama / Mistral)  
@@ -433,7 +433,7 @@ Daily structure:
 - Set up vLLM locally/remotely and serve one open-source model
 - Output: `experiments/serving/vllm_setup.md`
 
-### Day 48
+### Day 48 — vLLM API Testing
 - Read: OpenAI-compatible server docs in vLLM  
   https://docs.vllm.ai/
 - Read: FastAPI docs  
@@ -441,19 +441,19 @@ Daily structure:
 - Test OpenAI-compatible API calls and streaming
 - Output: `code/serving/vllm_client_demo.py`
 
-### Day 49
+### Day 49 — Single-User Benchmark
 - Read: basic benchmarking / latency measurement guide  
   https://docs.python.org/3/library/time.html
 - Benchmark single-user latency and tokens/sec
 - Output: `reports/serving/benchmark_single.md`
 
-### Day 50
+### Day 50 — Concurrency Benchmark
 - Read: concurrency testing basics (locust or simple async load)  
   https://locust.io/
 - Benchmark basic concurrency / throughput
 - Output: `reports/serving/benchmark_concurrency.md`
 
-### Day 51
+### Day 51 — Quantization Basics
 - Read: quantization overview  
   https://huggingface.co/docs/transformers/main/en/quantization/bitsandbytes
 - Read: llama.cpp quantization notes  
@@ -465,7 +465,7 @@ Daily structure:
 
 ## Week 7.5 — Quantization Mini Module
 
-### Day 52
+### Day 52 — AWQ
 - Read: AWQ paper  
   https://arxiv.org/abs/2306.00978
 - Read: AWQ repo  
@@ -473,7 +473,7 @@ Daily structure:
 - Write note: weight-only quantization, calibration, and why AWQ matters for deployment
 - Output: `notes/day52_awq.md`
 
-### Day 53
+### Day 53 — GPTQ / GGUF
 - Read: GPTQ paper  
   https://arxiv.org/abs/2210.17323
 - Read: AutoGPTQ repo  
@@ -481,7 +481,7 @@ Daily structure:
 - Write note: GPTQ vs AWQ vs GGUF / llama.cpp workflows
 - Output: `notes/day53_gptq_gguf.md`
 
-### Day 54
+### Day 54 — Quantized Deployment Integration
 - Review: vLLM docs, llama.cpp quantization notes, and your RAG code
 - Write note: quality / latency / memory trade-offs in quantized deployment
 - Connect RAG prototype generation to the vLLM endpoint
@@ -491,14 +491,14 @@ Daily structure:
 
 ## Week 8 — LoRA / QLoRA Mini Project
 
-### Day 55
+### Day 55 — LoRA Intro
 - Read: LoRA paper and HF PEFT intro  
   https://arxiv.org/abs/2106.09685  
   https://huggingface.co/docs/peft/index
 - Write note: LoRA vs full fine-tuning vs prompting
 - Output: `notes/day55_lora_intro.md`
 
-### Day 56
+### Day 56 — QLoRA
 - Read: QLoRA paper  
   https://arxiv.org/abs/2305.14314
 - Read: bitsandbytes docs  
@@ -506,7 +506,7 @@ Daily structure:
 - Write note: 4-bit / NF4 / memory savings at a practical level
 - Output: `notes/day56_qlora.md`
 
-### Day 57
+### Day 57 — Fine-tuning Task Selection
 - Browse: Kaggle datasets  
   https://www.kaggle.com/datasets
 - Browse: Hugging Face datasets  
@@ -515,7 +515,7 @@ Daily structure:
 - Suggested tasks: JD skill extraction, evidence summarization, structured report generation
 - Output: `projects/lora-lab/task_selection.md`
 
-### Day 58
+### Day 58 — Data Collection
 - Read: datasets library docs  
   https://huggingface.co/docs/datasets/index
 - Read: Kaggle API docs  
@@ -523,13 +523,13 @@ Daily structure:
 - Collect / clean dataset from Kaggle / Hugging Face / web sources
 - Output: `projects/lora-lab/data/raw/`
 
-### Day 59
+### Day 59 — Instruction Format Conversion
 - Read: instruction tuning format examples in HF docs  
   https://huggingface.co/docs/transformers/tasks/language_modeling
 - Convert data to instruction format
 - Output: `projects/lora-lab/data/processed/train.jsonl`
 
-### Day 60
+### Day 60 — LoRA Training Run 1
 - Read: PEFT quicktour  
   https://huggingface.co/docs/peft/quicktour
 - Read: Unsloth docs  
@@ -537,7 +537,7 @@ Daily structure:
 - Run first LoRA/QLoRA fine-tuning experiment
 - Output: `projects/lora-lab/training/run1/`
 
-### Day 61
+### Day 61 — LoRA Eval Report
 - Read: evaluation / comparison examples in PEFT ecosystem
 - Compare before/after samples, write mini eval report
 - Output: `reports/lora_eval/run1_report.md`
@@ -546,7 +546,7 @@ Daily structure:
 
 ## Week 9 — SGLang and Structured Generation
 
-### Day 62
+### Day 62 — SGLang Intro
 - Read: SGLang intro docs  
   https://docs.sglang.ai/
 - Read: SGLang GitHub  
@@ -554,35 +554,35 @@ Daily structure:
 - Write note: where SGLang fits relative to vLLM and workflow frameworks
 - Output: `notes/day62_sglang_intro.md`
 
-### Day 63
+### Day 63 — JSON Output Demo
 - Read: structured output guides  
   https://www.promptingguide.ai/
 - Run a simple structured generation demo
 - Output: `code/structured_generation/json_output_demo.py`
 
-### Day 64
+### Day 64 — Schema-Constrained Generation
 - Read: JSON / schema validation basics  
   https://json-schema.org/understanding-json-schema/
 - Build a schema-constrained summarization or extraction task
 - Output: `code/structured_generation/schema_demo.py`
 
-### Day 65
+### Day 65 — Structured vs Free-form Comparison
 - Review: SGLang docs + your output logs
 - Compare free-form prompting vs structured generation on stability
 - Output: `reports/structured_generation/comparison.md`
 
-### Day 66
+### Day 66 — Structured Generation Module
 - Read: SGLang examples  
   https://docs.sglang.ai/
 - Wrap structured generation into a reusable module
 - Output: `projects/structured-generation-lab/`
 
-### Day 67
+### Day 67 — Structured Generation Lab README
 - Read: good OSS README examples
 - Add README, usage examples, screenshots or logs
 - Output: `projects/structured-generation-lab/README.md`
 
-### Day 68
+### Day 68 — Week 9 Summary
 - Review and summarize SGLang learnings
 - Output: `notes/week9_summary.md`
 
@@ -590,14 +590,14 @@ Daily structure:
 
 ## Week 10 — Agent Workflows
 
-### Day 69
+### Day 69 — Agent Workflows
 - Read: ReAct paper intro + LangGraph quickstart  
   https://arxiv.org/abs/2210.03629  
   https://langchain-ai.github.io/langgraph/
 - Write note: workflow vs autonomous agent
 - Output: `notes/day69_agent_workflows.md`
 
-### Day 70
+### Day 70 — Research Agent Design
 - Read: Anthropic tool use overview  
   https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview
 - Read: OpenAI function calling guide  
@@ -605,7 +605,7 @@ Daily structure:
 - Define a research-agent use case and workflow graph
 - Output: `projects/open-research-copilot/design.md`
 
-### Day 71
+### Day 71 — Agent Tools Implementation
 - Read: Beautiful Soup docs  
   https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 - Read: Tavily / SerpAPI docs if using external search  
@@ -614,26 +614,26 @@ Daily structure:
 - Implement tools: search, scrape, retrieve, summarize
 - Output: `projects/open-research-copilot/tools/`
 
-### Day 72
+### Day 72 — Workflow Orchestration
 - Read: LangGraph state / graph concepts  
   https://langchain-ai.github.io/langgraph/
 - Implement stateful workflow orchestration
 - Output: `projects/open-research-copilot/workflow/`
 
-### Day 73
+### Day 73 — Trace and Observability
 - Read: tracing / observability ideas from LangSmith or OpenTelemetry  
   https://docs.smith.langchain.com/  
   https://opentelemetry.io/docs/
 - Add trace logging and intermediate step capture
 - Output: `projects/open-research-copilot/trace/`
 
-### Day 74
+### Day 74 — Retry and Reliability
 - Read: retry / backoff basics  
   https://tenacity.readthedocs.io/
 - Add retry / fallback / citation support
 - Output: `projects/open-research-copilot/reliability.md`
 
-### Day 75
+### Day 75 — Research Copilot Packaging
 - Review all Week 10 components
 - Package Research Agent v1 with README
 - Output: `projects/open-research-copilot/README.md`
@@ -642,42 +642,42 @@ Daily structure:
 
 ## Week 11 — Health Agent 2.0 Upgrade
 
-### Day 76
+### Day 76 — Health Agent 2.0 Architecture
 - Read: GraphRAG overview  
   https://microsoft.github.io/graphrag/
 - Re-scope Health Agent as flagship LLM system
 - Write architecture note
 - Output: `projects/health-agent-2.0/architecture.md`
 
-### Day 77
+### Day 77 — Health Agent Retrieval Design
 - Read: Graph retrieval / graph database concepts  
   https://neo4j.com/developer/
 - Design hybrid retrieval: note retrieval + graph retrieval + timeline retrieval
 - Output: `projects/health-agent-2.0/retrieval_design.md`
 
-### Day 78
+### Day 78 — Evidence Panel Design
 - Read: evidence-grounded UI inspirations from RAG tools / docs
 - Implement evidence / citation panel plan
 - Output: `projects/health-agent-2.0/evidence_panel.md`
 
-### Day 79
+### Day 79 — Health Agent Evaluation Set
 - Read: RAGAS or DeepEval again for eval inspiration  
   https://docs.ragas.io/  
   https://docs.confident-ai.com/
 - Create evaluation set for summary, timeline, meds, labs, relation queries
 - Output: `projects/health-agent-2.0/eval/testset_v1.json`
 
-### Day 80
+### Day 80 — Health Agent Observability
 - Read: OpenTelemetry docs  
   https://opentelemetry.io/docs/
 - Add observability plan: latency, tool selection, prompt size, token usage
 - Output: `projects/health-agent-2.0/observability.md`
 
-### Day 81
+### Day 81 — Health Agent Prototype
 - Review current Health Agent architecture and implement / prototype one upgraded retrieval path
 - Output: `projects/health-agent-2.0/prototype/`
 
-### Day 82
+### Day 82 — Health Agent README
 - Read: example benchmark / evaluation report formats from OSS repos
 - Write README and benchmark ideas for Health Agent 2.0
 - Output: `projects/health-agent-2.0/README.md`
@@ -686,38 +686,38 @@ Daily structure:
 
 ## Week 12 — Portfolio Packaging
 
-### Day 83
+### Day 83 — Repo Structure Cleanup
 - Read: good monorepo structure examples from favorite OSS repos
 - Clean all project directories and standardize structure
 - Output: cleaned repo tree
 
-### Day 84
+### Day 84 — Diagrams and Visuals
 - Read: Mermaid docs or draw.io usage  
   https://mermaid.js.org/  
   https://www.diagrams.net/
 - Add diagrams and screenshots / logs to key projects
 - Output: `assets/`
 
-### Day 85
+### Day 85 — Resume Bullets
 - Read: strong engineering resume bullet examples  
   https://www.levels.fyi/blog/applicant-tracking-system-resume.html
 - Write resume bullets for each major project in English and Chinese
 - Output: `reports/resume_bullets.md`
 
-### Day 86
+### Day 86 — Interview Notes
 - Read: common ML / LLM interview question sets and your own notes
 - Write interview Q&A notes for Transformer, RAG, vLLM, LoRA, SGLang, Agent
 - Output: `reports/interview_notes.md`
 
-### Day 87
+### Day 87 — Portfolio Overview
 - Read: great GitHub portfolio README examples
 - Write portfolio-level overview README
 - Output: `reports/portfolio_overview.md`
 
-### Day 88
+### Day 88 — Next Steps
 - Review gaps, list next-stage improvements
 - Output: `reports/next_steps.md`
 
-### Day 89
+### Day 89 — Final Polish
 - Final polish, final commit, optional GitHub push prep
 - Output: final local portfolio-ready repo
